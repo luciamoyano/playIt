@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Rubik:wght@300;400&display=swap');
+@mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@mixin rubik {
+    font-family: 'Rubik', sans-serif;
+}
+
+@mixin open-sans {
+    font-family: 'Open Sans', sans-serif;
+}
+
+@mixin transition {
+    -webkit-transition: all 2ms ease-out;
+    -moz-transition: all 2ms ease-out;
+    -ms-transition: all 2ms ease-out;
+    -o-transition: all 2ms ease-out;
+    transition: all 2ms ease-out;
+}
+

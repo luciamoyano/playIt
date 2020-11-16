@@ -1,0 +1,48 @@
+@import '/styles/mixins.scss';
+@import '/styles/variables.scss';
+
+.playlist {
+    //background-color: $accent-bg;
+    padding:15px;
+    margin-left:20px;
+    cursor:pointer;
+    @include transition;
+    .infoContainer {
+        margin-top:15px;
+        h2 {
+            text-align: center;
+            font-size: 14px;
+            margin:0;
+        }
+    }
+    .imgContainer {
+        border-radius:160px;
+        width: 160px;
+        height: 160px;
+        overflow: hidden;
+        position: relative;
+        -webkit-box-shadow: -2px 2px 3px 0px rgba(0,0,0,0.65);
+-moz-box-shadow: -2px 2px 3px 0px rgba(0,0,0,0.65);
+box-shadow: -2px 2px 3px 0px rgba(0,0,0,0.65);
+        img {
+            width: 160px;
+        }
+        &:after {
+            content:'';
+            width:30px;
+            height:30px;
+            border-radius:30px;
+            background: $accent-bg;
+            position: absolute;
+            top:50%;
+            transform: translate(-50%, -50%);
+            left:50%;
+            -webkit-box-shadow: inset -2px 2px 3px 0px rgba(0,0,0,0.65);
+-moz-box-shadow: inset -2px 2px 3px 0px rgba(0,0,0,0.65);
+box-shadow: inset -2px 2px 3px 0px rgba(0,0,0,0.65);
+        }
+    }    
+    &:hover {
+        background-color:lighten($accent-bg, 10%)
+    }   
+}

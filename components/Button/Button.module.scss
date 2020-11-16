@@ -1,0 +1,28 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.logInButton {
+    font-size:16px;
+    border-radius: 25px;
+    padding:15px 20px;
+    width: 250px;
+    background: $base-bg;
+    color: #fff;
+    border:none;
+    background: linear-gradient(90deg, $accent 0%, $accent-alt 100%);
+    font-weight: 300;
+    margin-top:30px;
+    @include transition;
+    &:hover {
+    background: $accent;
+    @include transition;
+    }
+}
+
+.themeButton {
+    background-color: #fff;
+    border-radius:30px;
+    width: 30px;
+    height: 30px;
+    border:1px solid #eee;
+}
