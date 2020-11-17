@@ -1,24 +1,28 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-export default function Navigation({naviTabs, currentPage}) {
-    console.log(naviTabs)
-    return (
+export default function Navigation({ naviTabs, currentPage }) {
+  return (
     <nav>
-        <Link href="/dashboard/musica">
-          <a>Musica</a>
-        </Link>
-        <Link href="/dashboard/podcasts">
-          <a>Podcasts</a>
-        </Link>
-        <div>
-        {naviTabs && naviTabs.map((tab,key)=> {
-            return (
-                <Link href={`/dashboard/${currentPage}/${tab}`} key={key}>
+      <Link href="/musica">
+        <a>Musica</a>
+      </Link>
+      <Link href="/podcasts">
+        <a>Podcasts</a>
+      </Link>
+      <div>
+        <ul>
+          {naviTabs &&
+            naviTabs.map((tab, key) => {
+              return (
+                <li key={key}>
+                  <Link href={`/${currentPage}/${tab}`}>
                     <a>{tab}</a>
-                </Link>
-            )
-        })}
-        </div>
+                  </Link>
+                </li>
+              );
+            })}
+        </ul>
+      </div>
     </nav>
-    )
+  );
 }

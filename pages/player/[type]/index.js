@@ -1,43 +1,52 @@
-import React, {useEffect, useState} from 'react';
-import {useRouter} from 'next/router';
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { useFetch } from "../../../hooks/useFetch";
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
+import Topbar from "../../../components/Topbar";
 
-export default function Play(){
-    const router = useRouter()
-    const {playlist_id, access_token, type} = router.query
-    const [tracksData, setTracksData] = useState({});
+export default function Play() {
+  const router = useRouter();
+  const { playlist_id, type } = router.query;
+  const [tracksData, setTracksData] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const playlistsApi = `https://api.spotify.com/v1/${type}s/${playlist_id}`;
+  const fetchData = useFetch();
 
-    useEffect(()=> {
-        fetchData();
-    },[access_token]);
+  useEffect(() => {
+    setIsLoading(true);
+    const [, accessToken] = useLocalStorage();
+    fetchData(playlistsApi, setTracksData, accessToken);
+    setIsLoading(false);
+  }, []);
 
-    async function fetchData() {
-        const data = await fetch(
-            `https://api.spotify.com/v1/${type}s/${playlist_id}`,
-            {
-            headers: {
-                'Authorization': 'Bearer ' + access_token
-            }
-            })
-        const dataJson = await data.json();
-        setTracksData(dataJson);
-     }
-
-    let tracksList = []
-    if(Object.keys(tracksData) > 0) {
-        tracksList = tracksData.tracks.items;
-    }
-
-    return (
-        <div>
-            <h1>{type} {tracksData.name}</h1>
-        <ul>Canciones:
-            {
-                tracksList && 
-                tracksList.map((tracks)=>{
-                return <li>{tracks.track.name}</li>
-                })
-            }
-        </ul>
-        </div>
-    )
-};
+  return (
+    <div>
+      <Topbar
+        naviTabs={["playlists", "albumes", "artistas"]}
+        currentPage="musica"
+      />
+      {!isLoading && tracksData ? (
+        <>
+          <h1>
+            {type} {tracksData.name}
+          </h1>
+          {tracksData ? (
+            <ul>
+              Canciones:
+              {tracksData.tracks &&
+                tracksData.tracks.items.map((tracks) => {
+                  return (
+                    <li>{type == "album" ? tracks.name : tracks.track.name}</li>
+                  );
+                })}
+            </ul>
+          ) : (
+            <p>Loading</p>
+          )}
+        </>
+      ) : (
+        <p>Loading</p>
+      )}
+    </div>
+  );
+}
