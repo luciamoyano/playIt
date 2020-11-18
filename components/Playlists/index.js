@@ -4,6 +4,8 @@ import styles from "./Playlists.module.scss";
 
 export default function Playlists(props) {
   const { playlistData, label, token, type } = props;
+  console.log(type);
+  console.log(playlistData);
   return (
     <>
       <div className={styles.mainContainer}>
@@ -31,6 +33,22 @@ export default function Playlists(props) {
               return (
                 <Playlist
                   data={playlist}
+                  type={type}
+                  token={token}
+                  name={name}
+                  images={images}
+                  key={id ? id : key}
+                  id={id}
+                />
+              );
+            })}
+
+          {type == "programa" &&
+            playlistData.map((programa, key) => {
+              const { name, images, id } = programa.show;
+              return (
+                <Playlist
+                  data={programa}
                   type={type}
                   token={token}
                   name={name}

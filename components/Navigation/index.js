@@ -3,10 +3,10 @@ import Link from "next/link";
 export default function Navigation({ naviTabs, currentPage }) {
   return (
     <nav>
-      <Link href="/musica">
+      <Link href="/musica/playlists">
         <a>Musica</a>
       </Link>
-      <Link href="/podcasts">
+      <Link href="/podcasts/programas">
         <a>Podcasts</a>
       </Link>
       <div>
