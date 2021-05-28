@@ -22,8 +22,8 @@ export default function Play() {
   return (
     <div>
       <Topbar
-        naviTabs={["playlists", "albumes", "artistas"]}
-        currentPage="musica"
+        naviTabs={["playlists", "albums", "artists"]}
+        currentPage="music"
       />
       {!isLoading && tracksData ? (
         <>

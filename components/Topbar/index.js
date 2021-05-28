@@ -2,12 +2,15 @@ import Button from "../Button";
 import Navigation from "../Navigation";
 import Profile from "../Profile";
 
-export default function Topbar({ naviTabs, currentPage }) {
+export default function Topbar({ naviTabs, currentPage, currentTab }) {
   return (
-    <>
+    <div className="topbar">
       <Profile />
-      <Button type="themeButton" />
-      <Navigation naviTabs={naviTabs} currentPage={currentPage} />
-    </>
+      <Navigation
+        naviTabs={naviTabs}
+        currentPage={currentPage}
+        currentTab={currentTab}
+      />
+    </div>
   );
 }

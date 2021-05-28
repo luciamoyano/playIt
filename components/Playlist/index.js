@@ -2,9 +2,9 @@ import React from "react";
 import Link from "next/link";
 import styles from "./Playlist.module.scss";
 
-function Playlist(props) {
-  const { id, name, images, type, token, data } = props;
+function Playlist({ id, name, images, type, token, data, tracks, artists }) {
   const [imgHeight640] = images;
+  console.log(data);
   return (
     <>
       {data ? (
@@ -16,10 +16,21 @@ function Playlist(props) {
         >
           <div className={styles.playlist}>
             <div className={styles.imgContainer}>
-              <img src={imgHeight640.url} alt={name} />
+              {imgHeight640 && <img src={imgHeight640.url} alt={name} />}
             </div>
+            <div className={styles.player}>►</div>
             <div className={styles.infoContainer}>
               <h2>{name}</h2>
+              {artists &&
+                artists.map((artist, key) => {
+                  const { name } = artist;
+                  return (
+                    <p className={styles.artistName} key={key}>
+                      {name}
+                    </p>
+                  );
+                })}
+              {tracks && <p className={styles.tracksCount}>{tracks} tracks</p>}
             </div>
           </div>
         </Link>

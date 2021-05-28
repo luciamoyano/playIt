@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Playlists from "../../components/Playlists";
 import Topbar from "../../components/Topbar";
+import Loader from "../../components/Loader";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { useFetch } from "../../hooks/useFetch";
+import styles from "./Music.module.scss";
 
-export default function Musica() {
+export default function Albums() {
   const [isLoading, setIsLoading] = useState(false);
   const [userSavedAlbums, setUserSavedAlbums] = useState({});
   const savedAlbumsApi = "https://api.spotify.com/v1/me/albums";
@@ -18,23 +20,25 @@ export default function Musica() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.mainContainer}>
       <Topbar
-        naviTabs={["playlists", "albums", "artistas"]}
-        currentPage="musica"
+        naviTabs={["playlists", "albums", "artists"]}
+        currentPage="music"
+        currentTab="albums"
       />
       {!isLoading ? (
         <>
           {userSavedAlbums.items && (
             <Playlists
-              label="Albumes"
+              label="Albums"
+              currentPage="music"
               type="album"
               playlistData={userSavedAlbums.items}
             />
           )}
         </>
       ) : (
-        <p>Loading</p>
+        <Loader />
       )}
     </div>
   );

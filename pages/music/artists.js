@@ -3,10 +3,11 @@ import Playlists from "../../components/Playlists";
 import Topbar from "../../components/Topbar";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { useFetch } from "../../hooks/useFetch";
+import styles from "./Music.module.scss";
 
-export default function Artistas() {
+export default function Artists() {
   const [isLoading, setIsLoading] = useState(false);
-  const artistsApi = "https://api.spotify.com/v1/me/following";
+  const artistsApi = "https://api.spotify.com/v1/me/following?type=artist";
   const [userArtists, setUserArtists] = useState({});
   const fetchData = useFetch();
 
@@ -17,19 +18,23 @@ export default function Artistas() {
     setIsLoading(false);
   }, []);
 
-  console.log(userArtists);
-
   return (
-    <div>
+    <div className={styles.mainContainer}>
       <Topbar
-        naviTabs={["playlists", "albumes", "artistas"]}
-        currentPage="musica"
+        naviTabs={["playlists", "albumes", "artists"]}
+        currentPage="music"
+        currentTab="artists"
       />
       {!isLoading ? (
         <>
-          {/* {savedAlbums &&
-             <Playlists label="Artistas" type="album" playlistData={savedAlbums}/>
-            }  */}
+          {userArtists && (
+            <Playlists
+              label="Artists"
+              type="artist"
+              currentPage="music"
+              playlistData={userArtists.artists}
+            />
+          )}
         </>
       ) : (
         <p>Loading</p>

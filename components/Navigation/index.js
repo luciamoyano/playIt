@@ -1,28 +1,30 @@
 import Link from "next/link";
+import styles from "./Navigation.module.scss";
+import SecondaryLinks from "../SecondaryLinks";
 
-export default function Navigation({ naviTabs, currentPage }) {
+export default function Navigation({ naviTabs, currentPage, currentTab }) {
   return (
-    <nav>
-      <Link href="/musica/playlists">
-        <a>Musica</a>
+    <nav className={`${styles.nav} ${styles.currentPage}`}>
+      <Link href="/music/playlists">
+        <a className={styles.mainLink}>Music</a>
       </Link>
-      <Link href="/podcasts/programas">
-        <a>Podcasts</a>
+      {currentPage === "music" && (
+        <SecondaryLinks
+          naviTabs={naviTabs}
+          currentPage={currentPage}
+          currentTab={currentTab}
+        />
+      )}
+      <Link href="/podcasts/programs">
+        <a className={styles.mainLink}>Podcasts</a>
       </Link>
-      <div>
-        <ul>
-          {naviTabs &&
-            naviTabs.map((tab, key) => {
-              return (
-                <li key={key}>
-                  <Link href={`/${currentPage}/${tab}`}>
-                    <a>{tab}</a>
-                  </Link>
-                </li>
-              );
-            })}
-        </ul>
-      </div>
+      {currentPage === "podcasts" && (
+        <SecondaryLinks
+          naviTabs={naviTabs}
+          currentPage={currentPage}
+          currentTab={currentTab}
+        />
+      )}
     </nav>
   );
 }

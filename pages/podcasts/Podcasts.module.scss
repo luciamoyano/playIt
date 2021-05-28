@@ -1,0 +1,7 @@
+@import '/styles/mixins.scss';
+@import '/styles/variables.scss';
+
+.mainContainer {
+    background:$base-bg;
+    display: flex;
+}

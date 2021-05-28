@@ -1,6 +1,16 @@
 .mainContainer {
     width: 80%;
     margin:40px;
+    padding:40px;
+    h1 {
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-bottom: 50px;
+    }
+    h2 {
+        margin-bottom:20px;
+        font-weight: bold;
+    }
 }
 
 .playlistsContainer {

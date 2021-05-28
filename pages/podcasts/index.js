@@ -7,7 +7,7 @@ export default function Podcasts() {
   useEffect(() => {
     const [, getToken] = useLocalStorage();
     if (getToken) {
-      router.push("/podcasts/programas");
+      router.push("/podcasts/programs");
     } else {
       router.push("/login");
     }

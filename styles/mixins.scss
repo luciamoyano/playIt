@@ -5,8 +5,8 @@
     list-style: none;
 }
 
-@mixin rubik {
-    font-family: 'Rubik', sans-serif;
+@mixin titleFont {
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 @mixin open-sans {
@@ -14,10 +14,6 @@
 }
 
 @mixin transition {
-    -webkit-transition: all 2ms ease-out;
-    -moz-transition: all 2ms ease-out;
-    -ms-transition: all 2ms ease-out;
-    -o-transition: all 2ms ease-out;
-    transition: all 2ms ease-out;
+    transition: all 0.4s ease-out;
 }
 

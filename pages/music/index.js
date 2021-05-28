@@ -16,7 +16,7 @@ function Dashboard({ handleToken }) {
     setToken(accessToken);
     handleToken(accessToken);
     if (accessToken) {
-      router.push("/musica/playlists");
+      router.push("/music/playlists");
     } else {
       router.push("/login");
     }

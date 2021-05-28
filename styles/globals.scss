@@ -1,6 +1,8 @@
 
 @import '/styles/mixins.scss';
 @import '/styles/variables.scss';
+@import '../styles/font-awesome-scss/fontawesome.scss';
+@import '../styles/font-awesome-scss/solid.scss';
 
 * {
   box-sizing: border-box;
@@ -15,11 +17,23 @@ body {
   color:$base-text;
   height:100%;
   min-height: 100%;
+  font-size: 13px;
+  line-height: 1.5em;
 }
 
 h1 {
-  @include rubik;
+  @include titleFont;
+  font-size:19px;
 }
+
+h2 {
+  @include titleFont;
+  font-size:16px;
+  font-weight:400;
+  margin:5px auto;
+}
+
+p {margin:5px auto;}
 
 a {
   color: inherit;

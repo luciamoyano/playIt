@@ -1,0 +1,37 @@
+@import '/styles/mixins.scss';
+@import '/styles/variables.scss';
+@import '../../styles/font-awesome-scss/fontawesome.scss';
+@import '../../styles/font-awesome-scss/solid.scss';
+
+.secondaryLinks {
+    list-style-type: none;
+    padding:0;
+    margin:0,auto;
+    font-size:14px;
+    margin-top:15px;
+    position:relative;
+    .secondaryLink {
+        @include transition;
+        cursor:pointer;
+        margin: 0 0 10px 20px;
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 10px;
+            margin-top:5px;
+            left: -150%;
+            width: 100%;
+            background-color: $accent;
+            @include transition;
+            border-radius: 10px;
+        }
+        &:hover,
+        &.currentTab  {
+            color:$accent;
+            &:before {
+                left: -100%;
+            }
+        }
+    }
+}
