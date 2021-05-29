@@ -3,6 +3,9 @@ import { useRouter } from "next/router";
 import { useFetch } from "../../../hooks/useFetch";
 import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import Topbar from "../../../components/Topbar";
+import Loader from "../../../components/Loader";
+import Tracks from "../../../components/Tracks";
+import styles from "./Player.module.scss";
 
 export default function Play() {
   const router = useRouter();
@@ -18,34 +21,18 @@ export default function Play() {
     fetchData(playlistsApi, setTracksData, accessToken);
     setIsLoading(false);
   }, []);
-
+  console.log(tracksData);
   return (
-    <div>
+    <div className={styles.mainContainer}>
       <Topbar
         naviTabs={["playlists", "albums", "artists"]}
         currentPage="music"
       />
-      {!isLoading && tracksData ? (
-        <>
-          <h1>
-            {type} {tracksData.name}
-          </h1>
-          {tracksData ? (
-            <ul>
-              Canciones:
-              {tracksData.tracks &&
-                tracksData.tracks.items.map((tracks) => {
-                  return (
-                    <li>{type == "album" ? tracks.name : tracks.track.name}</li>
-                  );
-                })}
-            </ul>
-          ) : (
-            <p>Loading</p>
-          )}
-        </>
+
+      {!isLoading ? (
+        <>{tracksData && <Tracks tracksData={tracksData} type={type} />}</>
       ) : (
-        <p>Loading</p>
+        <Loader />
       )}
     </div>
   );

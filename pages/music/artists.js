@@ -21,7 +21,7 @@ export default function Artists() {
   return (
     <div className={styles.mainContainer}>
       <Topbar
-        naviTabs={["playlists", "albumes", "artists"]}
+        naviTabs={["playlists", "albums", "artists"]}
         currentPage="music"
         currentTab="artists"
       />
