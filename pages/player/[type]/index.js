@@ -14,14 +14,14 @@ export default function Play() {
   const [isLoading, setIsLoading] = useState(false);
   const playlistsApi = `https://api.spotify.com/v1/${type}s/${playlist_id}`;
   const fetchData = useFetch();
+  const [, accessToken] = useLocalStorage();
 
   useEffect(() => {
     setIsLoading(true);
-    const [, accessToken] = useLocalStorage();
+    //const [, accessToken] = useLocalStorage();
     fetchData(playlistsApi, setTracksData, accessToken);
     setIsLoading(false);
   }, []);
-  console.log(tracksData);
   return (
     <div className={styles.mainContainer}>
       <Topbar
@@ -30,7 +30,11 @@ export default function Play() {
       />
 
       {!isLoading ? (
-        <>{tracksData && <Tracks tracksData={tracksData} type={type} />}</>
+        <>
+          {tracksData && (
+            <Tracks tracksData={tracksData} type={type} token={accessToken} />
+          )}
+        </>
       ) : (
         <Loader />
       )}
