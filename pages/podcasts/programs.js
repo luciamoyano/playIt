@@ -22,7 +22,7 @@ export default function Programas() {
   return (
     <div className={styles.mainContainer}>
       <Topbar
-        naviTabs={["episodios", "programs"]}
+        naviTabs={["programs"]}
         currentPage="podcasts"
         currentTab="programs"
       />

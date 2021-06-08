@@ -1,0 +1,60 @@
+@import '/styles/mixins.scss';
+@import '/styles/variables.scss';
+@import '../../styles/font-awesome-scss/fontawesome.scss';
+@import '../../styles/font-awesome-scss/solid.scss';
+
+.mainContainer {
+    width: 80%;
+    margin:40px;
+    padding:40px;
+    h1 {
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-bottom: 50px;
+    }
+    h2 {
+        margin-bottom:20px;
+        font-weight: bold;
+    }
+}
+
+.playlistsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    ul {
+        list-style-type: none;
+        padding:0;
+        margin:0;
+        li {
+            display:flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            padding:10px;
+            &:hover,
+            &:active {
+                @include transition;
+                background-color:$accent-bg;
+                border-radius: 15px; 
+                cursor:pointer;
+            }
+            img, p {
+                display:block;
+            }
+            .trackInfo {
+                margin-left: 15px;
+            }
+            img {
+                width:50px;
+                height:50px;
+               border-radius: 10px; 
+            }
+        }
+    }
+}
+.player {
+    position: fixed;
+    bottom:0;
+    width: 100%;
+}

@@ -4,7 +4,6 @@ import TokenContext from "../contexts/TokenContext";
 import { useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 
-//Context para el token. si token entonces -- dashboard, con token entonces --link
 export default function Home() {
   const router = useRouter();
   const context = useContext(TokenContext);

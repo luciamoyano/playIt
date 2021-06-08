@@ -27,12 +27,12 @@ export default function Artists() {
       />
       {!isLoading ? (
         <>
-          {userArtists && (
+          {userArtists.artists && (
             <Playlists
               label="Artists"
               type="artist"
               currentPage="music"
-              playlistData={userArtists.artists}
+              playlistData={userArtists.artists.items}
             />
           )}
         </>

@@ -4,7 +4,6 @@ import styles from "./Playlist.module.scss";
 
 function Playlist({ id, name, images, type, token, data, tracks, artists }) {
   const [imgHeight640] = images;
-  console.log(data);
   return (
     <>
       {data ? (
