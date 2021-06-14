@@ -2,16 +2,20 @@
 @import '/styles/variables.scss';
 
 .container {
-    margin:0 auto;
-    border-radius:40px;
-    transform: translateY(50%);
-    height:80%;
-    width: 90%;
-    max-width: 700px;
-    padding:50px;
     display:flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    background-color: $accent-bg;
+    height:100%;
+    .loginContainer {
+        margin:0 auto;
+        border-radius:40px;
+        max-width: 700px;
+        width: 80%;
+        padding:50px;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: $accent-bg;
+    }
 }

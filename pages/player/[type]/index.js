@@ -38,7 +38,7 @@ export default function Play() {
       {!isLoading && Object.keys(tracksData).length > 0 ? (
         <>{tracksData && <Tracks tracksData={tracksData} type={type} />}</>
       ) : (
-        <Loader />
+        <Loader action="Loading" />
       )}
     </div>
   );

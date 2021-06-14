@@ -8,17 +8,17 @@ function Login() {
   const redirect_uri = `http://localhost:3000/music`;
   const scopes = `streaming user-read-email user-read-private user-read-playback-state user-modify-playback-state user-library-read user-follow-read user-read-recently-played`;
   return (
-    <>
-      <div className={styles.container}>
-        <h1>Bienvenidos a Musikit</h1>
-        <p>Logueate con Spotify para continuar</p>
+    <div className={styles.container}>
+      <div className={styles.loginContainer}>
+        <h1>Welcome to Musikit</h1>
+        <p>Login with Spotify to continue</p>
         <a
           href={`${baseUrl}?client_id=${client_id}&response_type=${response_type}&redirect_uri=${redirect_uri}&scope=${scopes}`}
         >
           <Button name="Log in with Spotify" type="logInButton" />
         </a>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -8,14 +8,18 @@
     width: 250px;
     background: $base-bg;
     color: #fff;
+    background-size: 200% 100%;
     border:none;
-    background: linear-gradient(90deg, $accent 0%, $accent-alt 100%);
     font-weight: 300;
     margin-top:30px;
+    background-image: linear-gradient(to right, $accent,$accent-alt);
     @include transition;
     &:hover {
-    background: $accent;
-    @include transition;
+    @include transition; 
+    background-position: 50% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
     }
 }
 

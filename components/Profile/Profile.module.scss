@@ -7,15 +7,16 @@
     justify-content: center;
     margin:20px;
     padding:40px;
-    //border:solid 1px red;
     h1 {
         margin:0 0 10px 0;
     }
     h2 {
-        background:$accent;
-        padding: 1px 6px;
+        background:$accent-alt;
+        padding: 3px 6px;
         border-radius: 5px;
         margin-bottom: 15px;
+        font-size:14px;
+        font-weight: bold;
     }
     img {
         display: block;

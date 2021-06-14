@@ -1,6 +1,6 @@
 import styles from "./Loader.module.scss";
 
-export default function Loader() {
+export default function Loader({ action }) {
   return (
     <div className={styles.loaderContainer}>
       <div className={styles.loader}>
@@ -14,7 +14,7 @@ export default function Loader() {
         <div className={`${styles.bar} ${styles.bar8}`}></div>
       </div>
       <div className={styles.loaderText}>
-        <h2>Loading...</h2>
+        <h2>{action}</h2>
       </div>
     </div>
   );

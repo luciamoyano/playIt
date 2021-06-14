@@ -1,20 +1,24 @@
-import Head from "next/head";
-import styles from "../styles/Home.module.css";
-import TokenContext from "../contexts/TokenContext";
-import { useContext, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import Loader from "../components/Loader";
 
 export default function Home() {
   const router = useRouter();
-  const context = useContext(TokenContext);
-  const { token } = context;
+  const [isLoading, setIsLoading] = useState(false);
+  const accessToken =
+    useLocalStorage() !== undefined ? [, accessToken] : undefined;
+
   useEffect(() => {
-    if (token) {
+    setIsLoading(true);
+    console.log(accessToken);
+    if (accessToken) {
       router.push("/music");
     } else {
       router.push("/login");
     }
+    setIsLoading(false);
   }, []);
 
-  return <p>Redirecting...</p>;
+  return <Loader action="Redirecting" />;
 }

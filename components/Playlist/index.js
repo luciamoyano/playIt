@@ -4,15 +4,17 @@ import styles from "./Playlist.module.scss";
 
 function Playlist({ id, name, images, type, token, data, tracks, artists }) {
   const [imgHeight640] = images;
+  const linkPath =
+    type == "artist"
+      ? data.external_urls.spotify
+      : {
+          pathname: `/player/${type}`,
+          query: { playlist_id: id, access_token: token },
+        };
   return (
     <>
       {data ? (
-        <Link
-          href={{
-            pathname: `/player/${type}`,
-            query: { playlist_id: id, access_token: token },
-          }}
-        >
+        <Link href={linkPath}>
           <div className={styles.playlist}>
             <div className={styles.imgContainer}>
               {imgHeight640 && <img src={imgHeight640.url} alt={name} />}

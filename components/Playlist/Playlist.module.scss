@@ -13,6 +13,11 @@
             background:$accent;
             @include transition;
         }
+        .player {
+            top:145px;
+            visibility: visible;
+            opacity:1;
+        }
     }
     .imgContainer {
         @include transition;
@@ -20,6 +25,7 @@
         height: 160px;
         overflow:hidden;
         position: relative;
+        border-radius:20px;
         img {
             width: 160px;
             @include transition;
@@ -29,15 +35,18 @@
         width: 30px;
         height: 30px;
         border-radius:20px;
-        background:$accent-bg;
+        background:$accent;
         @include transition;
         z-index:100;
         position: absolute;
-        top:145px;
+        top:165px;
         right:5px;
         display: flex;
         align-items: center;
         justify-content: center;
+        visibility: hidden;
+        opacity:0;
+        color:$accent-bg;
     }
     .infoContainer {
         margin-top:15px;

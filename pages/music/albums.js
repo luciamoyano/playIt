@@ -38,7 +38,7 @@ export default function Albums() {
           )}
         </>
       ) : (
-        <Loader />
+        <Loader action="Loading" />
       )}
     </div>
   );

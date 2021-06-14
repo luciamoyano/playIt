@@ -23,7 +23,7 @@ export default function Tracks({ tracksData, type, token }) {
       <div className={styles.mainContainer}>
         <h2>{tracksData.name}</h2>
         <div className={styles.playlistsContainer}>
-          {tracksData && Object.keys(tracksData).length > 0 && (
+          {Object.keys(tracksData).length > 0 && (
             <ul>
               {type !== "program" &&
                 tracksData.tracks.items.map((track) => {
