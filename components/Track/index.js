@@ -10,19 +10,19 @@ export default function Track({
   duration,
 }) {
   return (
-    <li onClick={() => playSong(uri)}>
+    <li className={styles.track} onClick={() => playSong(uri)}>
       <img src={image} />
       <div className={styles.trackInfo}>
-        <p>{name}</p>
-        <p>
+        <p className={styles.trackName}>{name}</p>
+        <p className={styles.trackArtists}>
           {artists &&
             artists.map((artist) => {
-              return <span>{artist.name} </span>;
+              return <span>{artist.name}</span>;
             })}
         </p>
         {description && <p>{description}</p>}
-        <p>{duration}</p>
       </div>
+      <div className={styles.trackDuration}>{duration}</div>
     </li>
   );
 }
