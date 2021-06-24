@@ -11,7 +11,6 @@ export default function Home() {
 
   useEffect(() => {
     setIsLoading(true);
-    console.log(accessToken);
     if (accessToken) {
       router.push("/music");
     } else {

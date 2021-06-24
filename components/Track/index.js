@@ -17,7 +17,8 @@ export default function Track({
         <p className={styles.trackArtists}>
           {artists &&
             artists.map((artist) => {
-              return <span>{artist.name}</span>;
+              const { name, id } = artist;
+              return <span key={id}>{name}</span>;
             })}
         </p>
         {description && <p>{description}</p>}

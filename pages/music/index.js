@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import Playlists from "../../components/Playlists";
 import Button from "../../components/Button";
@@ -7,7 +7,6 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 function Dashboard() {
   const router = useRouter();
-  console.log(router);
   // separa location por &
   const [fullHash] = router.asPath.split("&");
   // desestructuramos el array del split y tomamos solo el accesstoken

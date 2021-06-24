@@ -9,7 +9,7 @@ function Playlist({ id, name, images, type, token, data, tracks, artists }) {
       ? data.external_urls.spotify
       : {
           pathname: `/player/${type}`,
-          query: { playlist_id: id, access_token: token },
+          query: { playlist_id: id },
         };
   return (
     <>

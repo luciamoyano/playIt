@@ -7,11 +7,10 @@ export default function SecondaryLinks({ naviTabs, currentPage, currentTab }) {
       {naviTabs &&
         naviTabs.map((tab, key) => {
           return (
-            <Link href={`/${currentPage}/${tab}`}>
+            <Link href={`/${currentPage}/${tab}`} key={key}>
               <li
                 className={`${styles.secondaryLink} 
                 ${currentTab === tab && styles.currentTab}`}
-                key={key}
               >
                 <a>{tab}</a>
               </li>
