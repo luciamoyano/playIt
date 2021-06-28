@@ -4,9 +4,9 @@
 @import '../../styles/font-awesome-scss/solid.scss';
 
 .mainContainer {
-    width: 80%;
-    margin:40px;
-    padding:40px;
+    padding:80px;    
+    flex-grow: 1;
+    overflow-y: scroll;
     h1 {
         text-transform: uppercase;
         letter-spacing: 0.15em;

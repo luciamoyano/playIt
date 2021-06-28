@@ -4,4 +4,6 @@
 .mainContainer {
     background:$base-bg;
     display: flex;
+    height: 100vh;
+    overflow: hidden;
 }

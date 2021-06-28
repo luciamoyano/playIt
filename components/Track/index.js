@@ -14,14 +14,17 @@ export default function Track({
       <img src={image} />
       <div className={styles.trackInfo}>
         <p className={styles.trackName}>{name}</p>
-        <p className={styles.trackArtists}>
-          {artists &&
-            artists.map((artist) => {
+        {artists && (
+          <p className={styles.trackArtists}>
+            {artists.map((artist) => {
               const { name, id } = artist;
               return <span key={id}>{name}</span>;
             })}
-        </p>
-        {description && <p>{description}</p>}
+          </p>
+        )}
+        {description && (
+          <p className={styles.trackDescription}>{description}</p>
+        )}
       </div>
       <div className={styles.trackDuration}>{duration}</div>
     </li>

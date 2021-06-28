@@ -12,17 +12,16 @@ li.track {
     margin-bottom: 20px;
     padding:10px;
     .trackInfo {
-        padding: 0 15px;
+        padding: 0 20px;
         flex-grow: 2;
         line-height: 1;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        .trackName{
+        .trackName {
             font-weight: bold;
         }
         .trackArtists {
-            padding:3px;
             span {
                 &:after{
                     content:", ";
@@ -32,7 +31,8 @@ li.track {
                 }
             }
         }
-        .trackName, .trackArtists {
+        .trackName, .trackArtists, .trackDescription {
+            padding:3px 0;
             display:block;
             max-width: 100%;
             overflow: hidden;

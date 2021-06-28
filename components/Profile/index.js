@@ -18,30 +18,27 @@ export default function Profile() {
 
   const { display_name, id, images, followers, external_urls } = userData;
 
-  return (
-    <>
-      {!isLoading ? (
-        <div className={styles.user}>
-          {images && <img src={images[0].url} />}
-          <div>
-            {userData ? (
-              <>
-                <h1>{display_name}</h1>
-                {external_urls && (
-                  <a href={external_urls.spotify}>
-                    <h2>@{id}</h2>
-                  </a>
-                )}
-                <p>{followers && <span>{followers.total}</span>} followers</p>
-              </>
-            ) : (
-              <p>Loading</p>
-            )}
-          </div>
-        </div>
-      ) : (
-        <p>Loading</p>
+  return !isLoading && userData ? (
+    <div className={styles.user}>
+      {userData?.images && (
+        <a href={external_urls.spotify}>
+          <img src={images[0].url} />
+        </a>
       )}
-    </>
+
+      <div>
+        {external_urls && (
+          <>
+            <h1>{display_name}</h1>
+            <a href={external_urls.spotify}>
+              <h2>@{id}</h2>
+            </a>
+          </>
+        )}
+        <p>{followers && <span>{followers.total}</span>} followers</p>
+      </div>
+    </div>
+  ) : (
+    <p>Loading</p>
   );
 }

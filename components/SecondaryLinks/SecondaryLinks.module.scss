@@ -6,29 +6,32 @@
 .secondaryLinks {
     list-style-type: none;
     padding:0;
-    margin:0,auto;
-    font-size:14px;
-    margin-top:15px;
+    margin:0 auto;
+    font-size:16px;
+    text-transform: capitalize;
+    margin-top:20px;
     position:relative;
+    color: darken($base-text, 50%);
     .secondaryLink {
-        @include transition;
         cursor:pointer;
-        margin: 0 0 10px 20px;
+        margin: 0 0 30px 0;
+        @include transition;
         &:before {
+            @include transition;
             content: '';
             display: block;
             position: absolute;
-            height: 10px;
-            margin-top:5px;
-            left: -150%;
-            width: 100%;
-            background-color: $accent;
-            @include transition;
-            border-radius: 10px;
+            height: 40px;
+            margin-top:-10px;
+            left: -300%;
+            width: 200%;
+            background-color: $accent-alt;
+            border-radius: 0 20px 20px 0;
+            z-index: -1;
         }
         &:hover,
         &.currentTab  {
-            color:$accent;
+            color:$base-text;
             &:before {
                 left: -100%;
             }

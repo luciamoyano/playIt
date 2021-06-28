@@ -33,6 +33,8 @@ export default function Tracks({ type, playlistId }) {
     setTrackUri(Uri);
   }
 
+  console.log(tracksData);
+
   function msToMinute(ms) {
     var minutes = Math.floor(ms / 60000);
     var seconds = ((ms % 60000) / 1000).toFixed(0);

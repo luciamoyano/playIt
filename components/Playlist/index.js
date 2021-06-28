@@ -31,7 +31,12 @@ function Playlist({ id, name, images, type, token, data, tracks, artists }) {
                     </p>
                   );
                 })}
-              {tracks && <p className={styles.tracksCount}>{tracks} tracks</p>}
+              {tracks && (
+                <p className={styles.tracksCount}>
+                  {tracks}
+                  {tracks !== 1 ? " tracks" : " track"}
+                </p>
+              )}
             </div>
           </div>
         </Link>
