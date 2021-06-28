@@ -5,7 +5,7 @@ function Login() {
   const baseUrl = `https://accounts.spotify.com/authorize`;
   const client_id = `7abba68765ca417abb055d6cb940f4c9`;
   const response_type = `token`;
-  const redirect_uri = `http://localhost:3000/music`;
+  const redirect_uri = `https://lumusic.vercel.app/music`;
   const scopes = `streaming user-read-email user-read-private user-read-playback-state user-modify-playback-state user-library-read user-follow-read user-read-recently-played`;
   return (
     <div className={styles.container}>
