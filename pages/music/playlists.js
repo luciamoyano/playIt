@@ -20,11 +20,7 @@ export default function PlaylistsPage() {
 
   return (
     <div className={styles.mainContainer}>
-      <Topbar
-        naviTabs={["playlists", "albums", "artists"]}
-        currentPage="music"
-        currentTab="playlists"
-      />
+      <Topbar currentTab="playlists" />
       {!isLoading ? (
         <>
           {userPlaylists.items && (

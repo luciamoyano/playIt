@@ -21,11 +21,7 @@ export default function Albums() {
 
   return (
     <div className={styles.mainContainer}>
-      <Topbar
-        naviTabs={["playlists", "albums", "artists"]}
-        currentPage="music"
-        currentTab="albums"
-      />
+      <Topbar currentTab="albums" />
       {!isLoading ? (
         <>
           {userSavedAlbums.items && (

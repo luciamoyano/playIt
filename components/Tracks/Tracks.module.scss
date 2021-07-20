@@ -1,21 +1,8 @@
 @import '/styles/mixins.scss';
 @import '/styles/variables.scss';
-@import '../../styles/font-awesome-scss/fontawesome.scss';
-@import '../../styles/font-awesome-scss/solid.scss';
 
 .mainContainer {
-    padding:80px;    
-    flex-grow: 1;
-    overflow-y: scroll;
-    h1 {
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        margin-bottom: 50px;
-    }
-    h2 {
-        margin-bottom:20px;
-        font-weight: bold;
-    }
+    @include rightContainer;
 }
 
 .playlistsContainer {

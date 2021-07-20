@@ -47,6 +47,9 @@
         visibility: hidden;
         opacity:0;
         color:$accent-bg;
+        svg {
+            width: 10px;
+        }
     }
     .infoContainer {
         margin-top:15px;

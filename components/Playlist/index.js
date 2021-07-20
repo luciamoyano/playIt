@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import styles from "./Playlist.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
 
 function Playlist({ id, name, images, type, token, data, tracks, artists }) {
   const [imgHeight640] = images;
@@ -19,7 +21,9 @@ function Playlist({ id, name, images, type, token, data, tracks, artists }) {
             <div className={styles.imgContainer}>
               {imgHeight640 && <img src={imgHeight640.url} alt={name} />}
             </div>
-            <div className={styles.player}>►</div>
+            <div className={styles.player}>
+              <FontAwesomeIcon icon={faPlay} />
+            </div>
             <div className={styles.infoContainer}>
               <h2>{name}</h2>
               {artists &&

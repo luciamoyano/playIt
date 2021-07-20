@@ -17,3 +17,37 @@
     transition: all 0.4s ease-out;
 }
 
+@mixin mainContainer {
+    background:$base-bg;
+    display: flex;
+    @media  (min-width: 900px) {
+        height: 100vh;
+        overflow: hidden;
+    }
+    @media  (max-width: 900px) {
+        flex-direction: column;
+    }
+}
+
+@mixin rightContainer {
+    padding:80px;    
+    width:100%;
+    h1 {
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-bottom: 50px;
+    }
+    h2 {
+        margin-bottom:20px;
+        font-weight: bold;
+    }
+    @media  (min-width: 900px) {
+        flex-grow: 1;
+        overflow-y: scroll;
+    }
+    @media  (max-width: 900px) {
+        max-width: 700px;
+        padding:40px;
+    }
+}
+

@@ -1,0 +1,33 @@
+@import '/styles/mixins.scss';
+@import '/styles/variables.scss';
+
+
+.navLink {
+    cursor:pointer;
+    margin: 0 0 30px 0;
+    svg {
+        margin-right:20px;
+        color: darken($base-text, 50%);
+    }
+    &.currentTab,
+    &.currentTab svg,
+    &:hover,
+    &:hover svg  {
+        color:$accent-alt;
+        border-color: $accent-alt;
+    }
+    @media  (max-width: 900px) {
+        font-size:14px;
+        margin-right:20px;
+        border:1px solid $base-text;
+        border-radius:20px;
+        padding:5px 10px;
+        svg {
+            color: $base-text;
+            margin-right:8px;
+        }
+    }
+    @media  (max-width: 900px) {
+        margin-top:0;
+    }
+}

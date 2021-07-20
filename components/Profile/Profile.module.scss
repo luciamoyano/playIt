@@ -6,7 +6,6 @@
     align-items: center;
     justify-content: center;
     margin:20px;
-    padding:40px;
     h1 {
         margin:0 0 10px 0;
     }
@@ -23,5 +22,8 @@
         border-radius:50px;
         width:70px;
         margin-right:20px;
+    }
+    @media  (max-width: 900px) {
+        margin: 50px auto;
     }
 }

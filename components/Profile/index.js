@@ -27,7 +27,7 @@ export default function Profile() {
       )}
 
       <div>
-        {external_urls && (
+        {userData?.external_urls && (
           <>
             <h1>{display_name}</h1>
             <a href={external_urls.spotify}>
@@ -35,7 +35,11 @@ export default function Profile() {
             </a>
           </>
         )}
-        <p>{followers && <span>{followers.total}</span>} followers</p>
+        {userData?.followers && (
+          <p>
+            <span>{followers.total}</span> followers
+          </p>
+        )}
       </div>
     </div>
   ) : (
