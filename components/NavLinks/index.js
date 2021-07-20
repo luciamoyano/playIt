@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "./navLinks.module.scss";
+import styles from "./NavLinks.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import { faHeadphonesAlt } from "@fortawesome/free-solid-svg-icons";
