@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Playlists from "../../components/Playlists";
 import Topbar from "../../components/Topbar";
+import GithubLogo from "../../components/GithubLogo";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { useFetch } from "../../hooks/useFetch";
 
@@ -20,22 +21,26 @@ export default function Programas() {
   }, []);
 
   return (
-    <div className={styles.mainContainer}>
-      <Topbar currentTab="programs" />
-      {!isLoading ? (
-        <>
-          {userSavedPodcasts.items && (
-            <Playlists
-              label="My Podcasts"
-              type="program"
-              currentPage="podcasts"
-              playlistData={userSavedPodcasts.items}
-            />
-          )}
-        </>
-      ) : (
-        <p>Loading</p>
-      )}
-    </div>
+    <>
+      <div className={styles.mainContainer}>
+        <Topbar currentTab="programs" />
+        {!isLoading ? (
+          <>
+            {userSavedPodcasts.items && (
+              <Playlists
+                label="My Podcasts"
+                type="program"
+                currentPage="podcasts"
+                playlistData={userSavedPodcasts.items}
+              />
+            )}
+          </>
+        ) : (
+          <p>Loading</p>
+        )}
+      </div>
+
+      <GithubLogo />
+    </>
   );
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Playlists from "../../components/Playlists";
 import Topbar from "../../components/Topbar";
 import Loader from "../../components/Loader";
+import GithubLogo from "../../components/GithubLogo";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { useFetch } from "../../hooks/useFetch";
 import styles from "./Music.module.scss";
@@ -20,22 +21,25 @@ export default function Albums() {
   }, []);
 
   return (
-    <div className={styles.mainContainer}>
-      <Topbar currentTab="albums" />
-      {!isLoading ? (
-        <>
-          {userSavedAlbums.items && (
-            <Playlists
-              label="Albums"
-              currentPage="music"
-              type="album"
-              playlistData={userSavedAlbums.items}
-            />
-          )}
-        </>
-      ) : (
-        <Loader action="Loading" />
-      )}
-    </div>
+    <>
+      <div className={styles.mainContainer}>
+        <Topbar currentTab="albums" />
+        {!isLoading ? (
+          <>
+            {userSavedAlbums.items && (
+              <Playlists
+                label="Albums"
+                currentPage="music"
+                type="album"
+                playlistData={userSavedAlbums.items}
+              />
+            )}
+          </>
+        ) : (
+          <Loader action="Loading" />
+        )}
+      </div>
+      <GithubLogo />
+    </>
   );
 }
